@@ -1,3 +1,4 @@
+import Stopwatch from '../Stopwatch/Stopwatch';
 import StartBtn from '../Start-btn/Start-btn';
 import ResumeBtn from '../Resume-btn/Resume-btn';
 import StopBtn from '../Stop-btn/Stop-btn';
@@ -18,6 +19,8 @@ function App() {
             <ResumeBtn />
             <p></p>
             <ResetBtn />
+            <p></p>
+            <Stopwatch msec={0} sec={0} min={0} />
         </div>
     );
 }
