@@ -1,9 +1,20 @@
+import React from 'react';
 import '../Resume-btn/Resume-btn.css';
 
-function ResumeBtn() {
+interface IResumeBtnProps {
+    handleResume: React.MouseEventHandler,
+}
+
+function ResumeBtn(props: IResumeBtnProps) {
     return (
         <div>
-            <button className="btn btn-primary" id="resume-btn">Resume</button>
+            <button
+                className="btn btn-primary"
+                id="resume-btn"
+                onClick={props.handleResume}
+            >
+                Resume
+            </button>
         </div>
     );
 }

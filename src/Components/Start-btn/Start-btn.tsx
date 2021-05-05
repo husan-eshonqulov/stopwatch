@@ -1,9 +1,20 @@
+import React from 'react';
 import '../Start-btn/Start-btn.css';
 
-function StartBtn() {
+interface IStartBtnProps {
+    handleStart: React.MouseEventHandler<HTMLButtonElement>,
+}
+
+function StartBtn(props: IStartBtnProps) {
     return (
         <div>
-            <button className="btn btn-primary" id="start-btn">Start</button>
+            <button
+                className="btn btn-primary"
+                id="start-btn"
+                onClick={props.handleStart}
+            >
+                Start
+            </button>
         </div>
     );
 }

@@ -1,9 +1,20 @@
+import React from 'react';
 import '../Stop-btn/Stop-btn.css';
 
-function StartBtn() {
+interface IStopBtnProps {
+    handleStop: React.MouseEventHandler<HTMLButtonElement>,
+}
+
+function StartBtn(props: IStopBtnProps) {
     return (
         <div>
-            <button className="btn btn-danger" id="stop-btn">Stop</button>
+            <button
+                className="btn btn-danger"
+                id="stop-btn"
+                onClick={props.handleStop}
+            >
+                Stop
+            </button>
         </div>
     );
 }

@@ -1,23 +1,23 @@
 import '../Stopwatch/Stopwatch.css';
 
-interface IStopwatch {
-    msec: number | string,
+interface IStopwatchProps {
+    time: number | string,
     sec: number | string,
     min: number | string,
 }
 
-function Stopwatch(props: IStopwatch) {
-    let msec = props.min;
+function Stopwatch(props: IStopwatchProps) {
+    let time = props.time;
     let sec = props.sec;
     let min = props.min;
 
-    msec = (msec < 10) ? '0' + msec : msec;
+    time = (time < 10) ? '0' + time : time;
     sec = (sec < 10) ? '0' + sec : sec;
     min = (min < 10) ? '0' + min : min;
 
     return (
         <div id="stopwatch">
-            {`${min} : ${sec} . ${msec}`}
+            {`${min} : ${sec} . ${time}`}
         </div>
     );
 }
