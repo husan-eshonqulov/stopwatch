@@ -2,45 +2,34 @@ import { useState, useEffect } from 'react';
 import Stopwatch from '../Stopwatch/Stopwatch';
 
 interface ILapTime {
-    status: boolean,
+    min: number | undefined,
+    sec: number | undefined,
+    time: number | undefined,
 }
 
 function LapTime(props: ILapTime) {
-    const [sec, setSec] = useState(0);
-    const [min, setMin] = useState(0);
-    const [time, setTime] = useState(0);
-
-    const status = props.status;
+    const [min, setMin] = useState<number | undefined>(0);
+    const [sec, setSec] = useState<number | undefined>(0);
+    const [time, setTime] = useState<number | undefined>(0);
 
     useEffect(() => {
-        if (status) {
-            const intervalId = setInterval(() => {
-                setTime(prevTime => prevTime + 1);
-            }, 10);
+        setTime(props.time);
+        setSec(props.sec);
+        setMin(props.min);
+    }, [props.time]);
 
-            return () => {
-                clearInterval(intervalId);
-            };
-        }
-    }, [status]);
-
-    useEffect(() => {
-        if (time === 99) {
-            setSec(prevSec => prevSec + 1);
-            setTime(0);
-        }
-
-        if (sec === 59) {
-            setMin(prevMin => prevMin + 1);
-            setSec(0);
-        }
-    });
-
-    return (
-        <div>
-            <Stopwatch time={time} sec={sec} min={min} />
-        </div>
-    );
+    if (time != undefined && sec != undefined && min != undefined) {
+        return (
+            <div>
+                <Stopwatch time={time} sec={sec} min={min} />
+            </div>
+        );
+    }
+    else {
+        return (
+            <div></div>
+        );
+    }
 }
 
 export default LapTime;
