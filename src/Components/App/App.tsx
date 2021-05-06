@@ -64,7 +64,7 @@ function App() {
 
     const lapTimeInfo = () => {
         if (table !== undefined) {
-            const lastTable = table[table.length - 1];
+            const lastTable = table[0];
             const lastOverallTime = lastTable.overallTime;
             let oTime = parseInt(lastOverallTime.slice(-2));
             let oSec = parseInt(lastOverallTime.slice(-7, -5));
@@ -110,55 +110,49 @@ function App() {
     const handleLap = () => {
         setTable((prevTable) => {
             if (prevTable !== undefined) {
-                // let lap: number | string = prevTable.length + 1;
-                // lap = (lap < 10) ? '0' + lap : lap;
+                let lap: number | string = prevTable.length + 1;
+                lap = (lap < 10) ? '0' + lap : lap;
+                const lastTableElement = prevTable[0];
+                const lastOverallTime = lastTableElement.overallTime;
+                let oTime = parseInt(lastOverallTime.slice(-2));
+                let oSec = parseInt(lastOverallTime.slice(-7, -5));
+                let oMin = parseInt(lastOverallTime.slice(-12, -10));
 
-                // // const prevOverallTime = prevTable[prevTable.length - 1].overallTime;
-                // // const oTime = parseInt(prevOverallTime.slice(-2));
-                // // const oSec = parseInt(prevOverallTime.slice(-7, -5));
-                // // const oMin = parseInt(prevOverallTime.slice(-12, -10));
+                let lapTime;
+                let lapSec;
+                let lapMin;
 
-                // // // const lapTime = (time > oTime) ? time - oTime : ;
+                if (time >= oTime) {
+                    lapTime = time - oTime;
+                }
+                else {
+                    lapTime = time + 100 - oTime;
+                    oSec += 1;
+                }
 
-                // // // if (time > oTime){
-                // // //     const lapTime = time - oTime;
-                // // // }
-                // // // else {
+                if (sec >= oSec) {
+                    lapSec = sec - oSec;
+                }
+                else {
+                    lapSec = sec + 60 - oSec;
+                    oMin += 1;
+                }
 
-                // // //     const lapTime = 
-                // // // }
-                // // // const laptime = createStopwatch(min, sec, lapTime);
+                lapMin = min - oMin;
 
+                return (
+                    [
 
-                // // // let oTime = parseInt(prevOverallTime.slice(-2)) + time;
-                // // // let oSec = parseInt(prevOverallTime.slice(-7, -5)) + sec;
-                // // // let oMin = parseInt(prevOverallTime.slice(-12, -10)) + min;
+                        {
+                            lap: lap,
+                            lapTime: createStopwatch(lapMin, lapSec, lapTime),
+                            overallTime: createStopwatch(min, sec, time),
+                        },
 
-                // // // if (oTime > 99) {
-                // // //     oTime -= 99;
-                // // //     oSec += 1;
-                // // // }
+                        ...prevTable,
 
-                // // // if (oSec > 59) {
-                // // //     oSec -= 59;
-                // // //     oMin += 1;
-                // // // }
-                // const lapTimeInfos = lapTimeInfo();
-                // if (lapTimeInfos != undefined) {
-                //     const lapTime = createStopwatch(lapTimeInfos.lapMin, lapTimeInfos.lapSec, lapTimeInfos.lapTime);
-                // }
-
-                // const overallTime = createStopwatch(min, sec, time);
-                // return (
-                //     [
-                //         ...prevTable,
-                //         {
-                //             lap: lap,
-                //             lapTime: laptime,
-                //             overallTime: overallTime,
-                //         }
-                //     ]
-                // );
+                    ]
+                );
             }
             else {
                 const laptime = createStopwatch(min, sec, time);
@@ -193,7 +187,6 @@ function App() {
             <Stopwatch time={time} sec={sec} min={min} />
             <p></p>
             <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
-            {/* <LapTime min={min} sec={sec} time={time} /> */}
             <p></p>
             <Table table={table} />
         </div>

@@ -8,7 +8,6 @@ interface ITableProps {
 
 function Table(props: ITableProps) {
     const table = props.table;
-    // console.log(table);
     if (table !== undefined) {
         return (
             <div>
@@ -21,17 +20,15 @@ function Table(props: ITableProps) {
                         </tr>
                     </thead>
                     <tbody>
-                        {table.map((element) => {
+                        {table.map((element, index) => {
                             return (
-                                <tr>
+                                <tr key={index}>
                                     <td>{element.lap}</td>
                                     <td>{element.lapTime}</td>
                                     <td>{element.overallTime}</td>
                                 </tr>
                             );
                         })}
-
-
                     </tbody>
                 </table>
             </div>
