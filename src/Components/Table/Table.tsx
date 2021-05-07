@@ -1,3 +1,5 @@
+import '../Table/Table.css';
+
 interface ITableProps {
     table: {
         lap: number | string,
@@ -11,12 +13,12 @@ function Table(props: ITableProps) {
     if (table !== undefined) {
         return (
             <div>
-                <table>
+                <table className="">
                     <thead>
-                        <tr>
-                            <th>Lap</th>
-                            <th>Lap Times</th>
-                            <th>Overall Time</th>
+                        <tr className="">
+                            <th className="">Lap</th>
+                            <th className="">Lap Times</th>
+                            <th className="">Overall Time</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +38,7 @@ function Table(props: ITableProps) {
     }
     else {
         return (
-            <div></div>
+            <div>No laps complated</div>
         );
     }
 

@@ -21,6 +21,8 @@ function App() {
     const [time, setTime] = useState(0);
     const [status, setStatus] = useState(false);
     const [table, setTable] = useState<Table | undefined>();
+    const [firstView, setFirstView] = useState(true);
+    const [secondView, setSecondView] = useState(false);
 
     useEffect(() => {
         if (status) {
@@ -48,11 +50,19 @@ function App() {
 
     const handleStart = () => {
         setStatus(true);
+        setFirstView(false);
+        setSecondView(true);
     };
 
     const handleStop = () => {
         setStatus(false);
+        setSecondView(false);
     };
+
+    const handleResume = () => {
+        setStatus(true);
+        setSecondView(true);
+    }
 
     const handleReset = () => {
         setTime(0);
@@ -60,6 +70,8 @@ function App() {
         setMin(0);
         setStatus(false);
         setTable(undefined);
+        setSecondView(false);
+        setFirstView(true);
     };
 
     const lapTimeInfo = () => {
@@ -170,27 +182,106 @@ function App() {
         });
     };
 
-    return (
-        <div className="container m-5">
-            <StartBtn handleStart={handleStart} />
-            <p></p>
-            <ResumeBtn handleResume={handleStart} />
-            <p></p>
-            <StopBtn handleStop={handleStop} />
-            <p></p>
-            <LapBtn handleLap={handleLap} />
-            <p></p>
-            <ResumeBtn handleResume={handleStart} />
-            <p></p>
-            <ResetBtn handleReset={handleReset} />
-            <p></p>
-            <Stopwatch time={time} sec={sec} min={min} />
-            <p></p>
-            <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
-            <p></p>
-            <Table table={table} />
-        </div>
-    );
+    if (firstView) {
+        return (
+            <div>
+                <div>
+                    <Stopwatch min={min} sec={sec} time={time} />
+                    <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+                </div>
+
+                <div>
+                    <StartBtn handleStart={handleStart} />
+                </div>
+            </div>
+        );
+    }
+    else {
+        if (secondView) {
+            return (
+                <div>
+                    <div className="row">
+                        <div className="col-6">
+                            <div>
+                                <Stopwatch min={min} sec={sec} time={time} />
+                                <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+                            </div>
+
+                            <div>
+                                <StopBtn handleStop={handleStop} />
+                                <LapBtn handleLap={handleLap} />
+                            </div>
+                        </div>
+
+                        <div className="col-6">
+                            <Table table={table} />
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        else {
+            return (
+                <div>
+                    <div className="row">
+                        <div className="col-6">
+                            <div>
+                                <Stopwatch min={min} sec={sec} time={time} />
+                                <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+                            </div>
+
+                            <div>
+                                <ResumeBtn handleResume={handleResume} />
+                                <ResetBtn handleReset={handleReset} />
+                            </div>
+                        </div>
+
+                        <div className="col-6">
+                            <Table table={table} />
+                        </div>
+                    </div>
+                </div>
+            );
+            // else {
+            //     <div>
+            //         <div className="row">
+            //             <div className="col-6">
+            //                 <div>
+            //                     <Stopwatch min={min} sec={sec} time={time} />
+            //                     <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+            //                 </div>
+            //                 <div>
+            //                     {/* <StopBtn /> */}
+            //                 </div>
+            //             </div>
+            //         </div>
+            //     </div>
+            // }
+        }
+    }
+
+
+    // return (
+    //     <div className="container m-5">
+    //         <StartBtn handleStart={handleStart} />
+    //         <p></p>
+    //         <ResumeBtn handleResume={handleStart} />
+    //         <p></p>
+    //         <StopBtn handleStop={handleStop} />
+    //         <p></p>
+    //         <LapBtn handleLap={handleLap} />
+    //         <p></p>
+    //         <ResumeBtn handleResume={handleStart} />
+    //         <p></p>
+    //         <ResetBtn handleReset={handleReset} />
+    //         <p></p>
+    //         <Stopwatch time={time} sec={sec} min={min} />
+    //         <p></p>
+    //         <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+    //         <p></p>
+    //         <Table table={table} />
+    //     </div>
+    // );
 }
 
 type Time = number | string;
