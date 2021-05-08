@@ -1,5 +1,3 @@
-import '../Stopwatch/Stopwatch.css';
-
 interface IStopwatchProps {
     time: number | string,
     sec: number | string,

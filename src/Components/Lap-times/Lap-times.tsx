@@ -20,7 +20,7 @@ function LapTime(props: ILapTime) {
 
     if (time != undefined && sec != undefined && min != undefined) {
         return (
-            <div>
+            <div id="text-gray">
                 <Stopwatch time={time} sec={sec} min={min} />
             </div>
         );

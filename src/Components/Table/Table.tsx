@@ -13,9 +13,9 @@ function Table(props: ITableProps) {
     if (table !== undefined) {
         return (
             <div>
-                <table className="">
+                <table>
                     <thead>
-                        <tr className="">
+                        <tr className="table-header">
                             <th className="">Lap</th>
                             <th className="">Lap Times</th>
                             <th className="">Overall Time</th>

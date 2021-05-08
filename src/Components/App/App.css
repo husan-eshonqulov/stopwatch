@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.App {
+    font-family: 'Roboto', sans-serif;
+}
+
+.stopwatch {
+    font-size: 50px;
+}
+
+.laptime {
+    font-size: 30px;
+}
+
+
+
+.first-view {
+    height: 100vh;
+}

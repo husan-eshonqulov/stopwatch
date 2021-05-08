@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import '../App/App.css';
 
 import Stopwatch from '../Stopwatch/Stopwatch';
 import StartBtn from '../Start-btn/Start-btn';
@@ -184,14 +185,20 @@ function App() {
 
     if (firstView) {
         return (
-            <div>
-                <div>
-                    <Stopwatch min={min} sec={sec} time={time} />
-                    <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
-                </div>
+            <div className="App first-view d-flex align-items-center justify-content-center">
+                <div className="d-flex flex-column align-items-center">
+                    <div>
+                        <div className="stopwatch">
+                            <Stopwatch min={min} sec={sec} time={time} />
+                        </div>
+                        <div className="laptime">
+                            <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+                        </div>
+                    </div>
 
-                <div>
-                    <StartBtn handleStart={handleStart} />
+                    <div>
+                        <StartBtn handleStart={handleStart} />
+                    </div>
                 </div>
             </div>
         );
@@ -199,12 +206,16 @@ function App() {
     else {
         if (secondView) {
             return (
-                <div>
+                <div className="App">
                     <div className="row">
                         <div className="col-6">
                             <div>
-                                <Stopwatch min={min} sec={sec} time={time} />
-                                <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+                                <div className="stopwatch">
+                                    <Stopwatch min={min} sec={sec} time={time} />
+                                </div>
+                                <div className="laptime">
+                                    <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+                                </div>
                             </div>
 
                             <div>
@@ -222,12 +233,16 @@ function App() {
         }
         else {
             return (
-                <div>
+                <div className="App">
                     <div className="row">
                         <div className="col-6">
                             <div>
-                                <Stopwatch min={min} sec={sec} time={time} />
-                                <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+                                <div className="stopwatch">
+                                    <Stopwatch min={min} sec={sec} time={time} />
+                                </div>
+                                <div className="laptime">
+                                    <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
+                                </div>
                             </div>
 
                             <div>
@@ -242,21 +257,6 @@ function App() {
                     </div>
                 </div>
             );
-            // else {
-            //     <div>
-            //         <div className="row">
-            //             <div className="col-6">
-            //                 <div>
-            //                     <Stopwatch min={min} sec={sec} time={time} />
-            //                     <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
-            //                 </div>
-            //                 <div>
-            //                     {/* <StopBtn /> */}
-            //                 </div>
-            //             </div>
-            //         </div>
-            //     </div>
-            // }
         }
     }
 
