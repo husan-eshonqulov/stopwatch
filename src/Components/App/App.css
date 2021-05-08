@@ -6,14 +6,42 @@
 
 .stopwatch {
     font-size: 50px;
+    line-height: 1;
 }
 
 .laptime {
-    font-size: 30px;
+    font-size: 25px;
+    height: 35px;
 }
-
-
 
 .first-view {
     height: 100vh;
+}
+
+.start-button {
+    margin-top: 150px;
+}
+
+.second-view-row {
+    height: 100vh;
+    width: 100vw;
+}
+
+.margin-right-35 {
+    margin-right: 70px;
+}
+
+.margin-top-150 {
+    margin-top: 150px;
+}
+
+.table-container {
+    width: 657px;
+    width: 467px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.right-border {
+    border: 1px red solid;
 }

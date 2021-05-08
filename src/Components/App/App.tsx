@@ -196,7 +196,7 @@ function App() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="start-button">
                         <StartBtn handleStart={handleStart} />
                     </div>
                 </div>
@@ -206,10 +206,10 @@ function App() {
     else {
         if (secondView) {
             return (
-                <div className="App">
-                    <div className="row">
-                        <div className="col-6">
-                            <div>
+                <div className="App second-view">
+                    <div className="row second-view-row">
+                        <div className="col-6 d-flex flex-column align-items-center justify-content-center">
+                            <div className="d-flex flex-column align-items-center">
                                 <div className="stopwatch">
                                     <Stopwatch min={min} sec={sec} time={time} />
                                 </div>
@@ -218,14 +218,20 @@ function App() {
                                 </div>
                             </div>
 
-                            <div>
-                                <StopBtn handleStop={handleStop} />
-                                <LapBtn handleLap={handleLap} />
+                            <div className="d-flex margin-top-150">
+                                <div className="margin-right-35">
+                                    <StopBtn handleStop={handleStop} />
+                                </div>
+                                <div className="margin-left-35">
+                                    <LapBtn handleLap={handleLap} />
+                                </div>
                             </div>
                         </div>
 
-                        <div className="col-6">
-                            <Table table={table} />
+                        <div className="col-6 d-flex align-items-center justify-content-center">
+                            <div className="">
+                                <Table table={table} />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -233,10 +239,10 @@ function App() {
         }
         else {
             return (
-                <div className="App">
-                    <div className="row">
-                        <div className="col-6">
-                            <div>
+                <div className="App third-view">
+                    <div className="row second-view-row">
+                        <div className="col-6 d-flex flex-column align-items-center justify-content-center">
+                            <div className="d-flex flex-column align-items-center">
                                 <div className="stopwatch">
                                     <Stopwatch min={min} sec={sec} time={time} />
                                 </div>
@@ -245,13 +251,17 @@ function App() {
                                 </div>
                             </div>
 
-                            <div>
-                                <ResumeBtn handleResume={handleResume} />
-                                <ResetBtn handleReset={handleReset} />
+                            <div className="d-flex margin-top-150">
+                                <div className="margin-right-35">
+                                    <ResumeBtn handleResume={handleResume} />
+                                </div>
+                                <div className="margin-left-35">
+                                    <ResetBtn handleReset={handleReset} />
+                                </div>
                             </div>
                         </div>
 
-                        <div className="col-6">
+                        <div className="col-6 d-flex align-items-center justify-content-center">
                             <Table table={table} />
                         </div>
                     </div>
