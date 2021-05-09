@@ -228,10 +228,8 @@ function App() {
                             </div>
                         </div>
 
-                        <div className="col-6 d-flex align-items-center justify-content-center">
-                            <div className="">
-                                <Table table={table} />
-                            </div>
+                        <div className="col-6">
+                            <Table table={table} />
                         </div>
                     </div>
                 </div>
@@ -261,7 +259,7 @@ function App() {
                             </div>
                         </div>
 
-                        <div className="col-6 d-flex align-items-center justify-content-center">
+                        <div className="col-6">
                             <Table table={table} />
                         </div>
                     </div>

@@ -1,3 +1,25 @@
 .table-header {
     letter-spacing: 1px;
+    border-bottom: 1px red solid;
+} 
+
+.table-body {
+    height: 50vh;
+}
+
+.padding-right-48 {
+    padding-right: 48px;
+    padding-bottom: 11px;
+}
+
+.padding-top-16 {
+    padding-top: 17px;
+}
+
+.padding-left-4 {
+    padding-left: 3px;
+}
+
+.padding-left-20 {
+    padding-left: 21px;
 }
