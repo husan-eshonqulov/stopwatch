@@ -207,8 +207,8 @@ function App() {
         if (secondView) {
             return (
                 <div className="App second-view">
-                    <div className="row second-view-row">
-                        <div className="col-6 d-flex flex-column align-items-center justify-content-center">
+                    <div className="row second-view-row" id="second-view-row">
+                        <div className="col-sm-6 d-flex flex-column align-items-center justify-content-center" id="top-section">
                             <div className="d-flex flex-column align-items-center">
                                 <div className="stopwatch">
                                     <Stopwatch min={min} sec={sec} time={time} />
@@ -228,7 +228,7 @@ function App() {
                             </div>
                         </div>
 
-                        <div className="col-6">
+                        <div className="col-sm-6 d-flex justify-content-center align-items-center" id="table">
                             <Table table={table} />
                         </div>
                     </div>
@@ -239,7 +239,7 @@ function App() {
             return (
                 <div className="App third-view">
                     <div className="row second-view-row">
-                        <div className="col-6 d-flex flex-column align-items-center justify-content-center">
+                        <div className="col-sm-6 d-flex flex-column align-items-center justify-content-center" id="top-section">
                             <div className="d-flex flex-column align-items-center">
                                 <div className="stopwatch">
                                     <Stopwatch min={min} sec={sec} time={time} />
@@ -259,7 +259,7 @@ function App() {
                             </div>
                         </div>
 
-                        <div className="col-6">
+                        <div className="col-sm-6 d-flex justify-content-center align-items-center" id="table">
                             <Table table={table} />
                         </div>
                     </div>

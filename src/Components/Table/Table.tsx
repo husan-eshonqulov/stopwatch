@@ -13,32 +13,32 @@ function Table(props: ITableProps) {
     if (table !== undefined) {
         return (
             <div>
-                <table>
-                    <thead>
+                <table className="">
+                    <div>
                         <tr className="table-header">
                             <th className="padding-right-48">Lap</th>
                             <th className="padding-right-48">Lap Times</th>
                             <th className="">Overall Time</th>
                         </tr>
-                    </thead>
-                    <tbody className="table-body">
+                    </div>
+                    <div className="table-body">
                         {table.map((element, index) => {
                             return (
                                 <tr key={index} >
                                     <td className="padding-top-16">{element.lap}</td>
-                                    <td className="padding-top-16 padding-left-4">{element.lapTime}</td>
-                                    <td className="padding-top-16 padding-left-20">{element.overallTime}</td>
+                                    <td className="padding-top-16 padding-left-60">{element.lapTime}</td>
+                                    <td className="padding-top-16 padding-left-80">{element.overallTime}</td>
                                 </tr>
                             );
                         })}
-                    </tbody>
+                    </div>
                 </table>
             </div>
         );
     }
     else {
         return (
-            <div>No laps complated</div>
+            <div className="empty-table text-center">No laps complated</div>
         );
     }
 
