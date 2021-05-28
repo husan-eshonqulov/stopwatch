@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../Lap-btn/Lap-btn.css';
 
 interface ILapBtnProps {

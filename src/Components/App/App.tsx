@@ -10,7 +10,7 @@ import LapBtn from '../Lap-btn/Lap-btn';
 import Table from '../Table/Table';
 import LapTime from '../Lap-times/Lap-times';
 
-type Table = {
+type TTable = {
     lap: number | string,
     lapTime: string,
     overallTime: string,
@@ -21,7 +21,7 @@ function App() {
     const [min, setMin] = useState(0);
     const [time, setTime] = useState(0);
     const [status, setStatus] = useState(false);
-    const [table, setTable] = useState<Table | undefined>();
+    const [table, setTable] = useState<TTable | undefined>();
     const [firstView, setFirstView] = useState(true);
     const [secondView, setSecondView] = useState(false);
 
@@ -47,7 +47,7 @@ function App() {
             setMin(prevMin => prevMin + 1);
             setSec(0);
         }
-    });
+    }, [time, sec]);
 
     const handleStart = () => {
         setStatus(true);
