@@ -265,62 +265,8 @@ function App() {
                     </div>
                 </div>
             );
-
-
-            // return (
-            //     <div className="App third-view">
-            //         <div className="row second-view-row">
-            //             <div className="col-sm-6 d-flex flex-column align-items-center justify-content-center" id="top-section">
-            //                 <div className="d-flex flex-column align-items-center">
-            //                     <div className="stopwatch">
-            //                         <Stopwatch min={min} sec={sec} time={time} />
-            //                     </div>
-            //                     <div className="laptime">
-            //                         <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
-            //                     </div>
-            //                 </div>
-
-            //                 <div className="d-flex margin-top-150">
-            //                     <div className="margin-right-35">
-            //                         <ResumeBtn handleResume={handleResume} />
-            //                     </div>
-            //                     <div className="margin-left-35">
-            //                         <ResetBtn handleReset={handleReset} />
-            //                     </div>
-            //                 </div>
-            //             </div>
-
-            //             <div className="col-sm-6 d-flex justify-content-center align-items-center" id="table">
-            //                 <Table table={table} />
-            //             </div>
-            //         </div>
-            //     </div>
-            // );
         }
     }
-
-
-    // return (
-    //     <div className="container m-5">
-    //         <StartBtn handleStart={handleStart} />
-    //         <p></p>
-    //         <ResumeBtn handleResume={handleStart} />
-    //         <p></p>
-    //         <StopBtn handleStop={handleStop} />
-    //         <p></p>
-    //         <LapBtn handleLap={handleLap} />
-    //         <p></p>
-    //         <ResumeBtn handleResume={handleStart} />
-    //         <p></p>
-    //         <ResetBtn handleReset={handleReset} />
-    //         <p></p>
-    //         <Stopwatch time={time} sec={sec} min={min} />
-    //         <p></p>
-    //         <LapTime min={lapTimeInfo().lapMin} sec={lapTimeInfo().lapSec} time={lapTimeInfo().lapTime} />
-    //         <p></p>
-    //         <Table table={table} />
-    //     </div>
-    // );
 }
 
 type Time = number | string;
