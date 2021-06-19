@@ -7,3 +7,7 @@
     box-sizing: border-box;
     width: 104px;
 }
+
+#resume-btn:focus {
+    box-shadow: none;
+}

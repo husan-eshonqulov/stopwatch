@@ -1,38 +1,39 @@
 .table-header {
-    letter-spacing: 1px;
-    border-bottom: 1px #c0c0c0 solid;
-} 
+  letter-spacing: 1px;
+  border-bottom: 1px #c0c0c0 solid;
+}
 
 .table-body {
-    height: 250px;
-    overflow: auto;
+  overflow: auto;
 }
 
 .padding-right-48 {
-    padding-right: 48px;
-    padding-bottom: 11px;
+  padding-right: 48px;
+  padding-bottom: 11px;
 }
 
 .padding-top-16 {
-    padding-top: 17px;
+  padding-top: 17px;
 }
 
 .padding-left-60 {
-    padding-left: 61px;
+  padding-left: 61px;
 }
 
 .padding-left-80 {
-    /* padding-left: 55px; */
-    padding-left: 75px;
-}
-.empty-table {
-    height: 250px;
-    width: 200px;
+  padding-left: 75px;
 }
 
-@media (min-width: 320px) and (max-width: 570px) {
-    .table-body {
-        height: 200px;
-        overflow: auto;
-    }
+@media (max-width: 767px) {
+  .padding-right-48 {
+    padding-right: 13px;
+  }
+
+  .padding-left-60 {
+    padding-left: 28px;
+  }
+
+  .padding-left-80 {
+    padding-left: 40px;
+  }
 }

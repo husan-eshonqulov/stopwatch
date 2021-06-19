@@ -7,3 +7,7 @@
     box-sizing: border-box;
     width: 104px;
 }
+
+#stop-btn:focus {
+    box-shadow: none;
+}
