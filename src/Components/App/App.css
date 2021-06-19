@@ -61,14 +61,14 @@
 
 @media (max-width: 767px){
     .height-first-v {
-        height: 90%;
+        height: 75%;
+    }
+    
+    .height-second-v {
+        height: 75%;
     }
 
     #second-view-row {
         width: 95%;
-    }
-    
-    .height-second-v {
-        height: 90%;
     }
 }
